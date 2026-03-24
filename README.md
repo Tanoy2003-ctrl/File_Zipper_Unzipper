@@ -55,6 +55,7 @@ Small Files: For files under 2KB, the 1,024-byte header (storing the frequency t
 Already Compressed Files: Files like .jpg, .mp3, or .zip are already optimized. Huffman coding may add overhead, making the output slightly larger.
 
 🛠️ How it Works
+
 Frequency Analysis: Scans the input file to count occurrences of each of the 256 possible byte values.
 
 Tree Construction: Builds a Min-Heap of nodes and merges the two lowest-frequency nodes repeatedly until a single Huffman Tree remains.
