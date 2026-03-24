@@ -1,38 +1,47 @@
 Huffman File Zipper & Unzipper
+
 A lightweight, lossless file compression utility written in C using Huffman Coding. This project demonstrates efficient data structures (Min-Heaps, Binary Trees) and bitwise manipulation to reduce file sizes by assigning variable-length codes to characters based on their frequency.
 
 🚀 Features
-Custom Compression: Uses the Huffman algorithm to compress any file type.
 
-Cross-Platform: Works on macOS (Clang/GCC) and Windows (MinGW/Visual Studio).
+*Custom Compression: Uses the Huffman algorithm to compress any file type.
 
-Binary Support: Handles non-text files (images, PDFs) by processing raw bytes.
+*Cross-Platform: Works on macOS (Clang/GCC) and Windows (MinGW/Visual Studio).
 
-Self-Contained: Stores the frequency table in the file header for standalone decompression.
+*Binary Support: Handles non-text files (images, PDFs) by processing raw bytes.
+
+*Self-Contained: Stores the frequency table in the file header for standalone decompression.
 
 💻 Installation & Usage
+
 🍎 macOS / Linux
-Open Terminal and navigate to your project folder:
+
+1.Open Terminal and navigate to your project folder:
 
 Bash
 cd ~/Path/To/Your/Folder
-Compile the tools:
+
+2.Compile the tools:
 
 Bash
 gcc -o zipper zipper.c
 gcc -o unzipper unzipper.c
-Compress a file:
+
+3.Compress a file:
 
 Bash
 ./zipper input.txt compressed.huff
-Decompress the file:
+
+4.Decompress the file:
 
 Bash
 ./unzipper compressed.huff restored.txt
-🪟 Windows
-Open Command Prompt (CMD) or PowerShell.
 
-Compile the tools (Requires MinGW installed):
+🪟 Windows
+
+1.Open Command Prompt (CMD) or PowerShell.
+
+2.Compile the tools (Requires MinGW installed):
 
 DOS
 
