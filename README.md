@@ -35,33 +35,40 @@ Open Command Prompt (CMD) or PowerShell.
 Compile the tools (Requires MinGW installed):
 
 DOS
+
 gcc -o zipper.exe zipper.c
 gcc -o unzipper.exe unzipper.c
 Compress a file:
 
 DOS
+
 zipper.exe input.txt compressed.huff
 Decompress the file:
 
 DOS
+
 unzipper.exe compressed.huff restored.txt
+
 📊 Understanding Performance
+
 When to expect high compression:
+
 Huffman coding thrives on redundancy. Large text files or uncompressed data (like .bmp or .txt) will see significant size reductions (often 40%–70%).
 
 When the file size might increase:
-Small Files: For files under 2KB, the 1,024-byte header (storing the frequency table) may be larger than the data saved.
 
-Already Compressed Files: Files like .jpg, .mp3, or .zip are already optimized. Huffman coding may add overhead, making the output slightly larger.
+1.Small Files: For files under 2KB, the 1,024-byte header (storing the frequency table) may be larger than the data saved.
+
+2.Already Compressed Files: Files like .jpg, .mp3, or .zip are already optimized. Huffman coding may add overhead, making the output slightly larger.
 
 🛠️ How it Works
 
-Frequency Analysis: Scans the input file to count occurrences of each of the 256 possible byte values.
+1.Frequency Analysis: Scans the input file to count occurrences of each of the 256 possible byte values.
 
-Tree Construction: Builds a Min-Heap of nodes and merges the two lowest-frequency nodes repeatedly until a single Huffman Tree remains.
+2.Tree Construction: Builds a Min-Heap of nodes and merges the two lowest-frequency nodes repeatedly until a single Huffman Tree remains.
 
-Encoding: Traverses the tree to assign bit-strings (e.g., 'e' becomes 10, 'z' becomes 110101).
+3.Encoding: Traverses the tree to assign bit-strings (e.g., 'e' becomes 10, 'z' becomes 110101).
 
-Bit-Packing: Packs these variable-length bits into standard 8-bit bytes to be written to the disk.
+4.Bit-Packing: Packs these variable-length bits into standard 8-bit bytes to be written to the disk.
 
-Header Storage: Previews the compressed data with the frequency map so the unzipper can rebuild the exact same tree.
+5.Header Storage: Previews the compressed data with the frequency map so the unzipper can rebuild the exact same tree.
